@@ -32,7 +32,12 @@ try:
     print "\nMAC validated: Data was encrypted by someone with the shared secret passphrase"
     print "All allies have passphrase - SYMMETRIC encryption!!!"
     print "\nAuthenticated AAD: " + str(received_aad)
-    print "Decrypted sensitive data: " + str(decrypted_data)
+    # print "Decrypted sensitive data: " + str(decrypted_data)
 except ValueError as mac_mismatch:
     print "\nMAC validation failed during decryption. No authentication gurantees on this ciphertext"
     print "\nUnauthenticated AAD: " + str(received_aad)
+
+user_decrypted_file = raw_input("\n\nDECRYPTED FILE NAME\nChoose name for decrypted file:")
+output_file_handle = open(user_decrypted_file, 'wb')
+output_file_handle.write(decrypted_data)
+output_file_handle.close()

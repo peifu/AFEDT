@@ -39,22 +39,6 @@ ciphertext, tag = cipher.encrypt_and_digest(sensitive_data)
 # Nonce is generated randomly if not provided explicitly
 nonce = cipher.nonce
 
-# Print all the components of the message
-print "\nCOMPONENTS OF TRANSMITTED MESSAGE"
-print "AAD: " + str(type(aad))
-print aad
-print
-print "Ciphertext: " + str(type(ciphertext))
-print ciphertext
-print
-print "Authentication tag: " + str(type(tag))
-print tag
-print
-print "Nonce: " + str(type(nonce))
-print nonce
-print
-print "KDF salt: " + str(type(kdf_salt))
-print kdf_salt
 # Message to transmit/share
 transmitted_message = [aad, ciphertext, tag, nonce, kdf_salt]
 print "\nTransmitted message: " + str(transmitted_message)
